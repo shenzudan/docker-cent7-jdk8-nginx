@@ -31,8 +31,9 @@ RUN curl --fail --location --retry 3 \
     && tar -zxf /tmp/nginx.tar.gz -C /usr/local/ \
     && \rm -f /tmp/nginx.tar.gz \
     && yum -y install pcre-devel openssl-devel \
-    && /usr/local/configure  --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module \
-    && make && make install \
+    && cd /usr/local/nginx-1.15.6/
+    && ./configure  --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module \
+    && make && make install
 
 
 # Overwrite nginx conf
@@ -40,4 +41,8 @@ COPY nginx.conf /usr/local/nginx/conf/
 COPY vhost /usr/local/nginx/conf/
 
 # Run nginx
-RUN /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+#RUN /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+ENTRYPOINT ["/usr/local/nginx/sbin/nginx","-c", "/usr/local/nginx/conf/nginx.conf"]
+
+
+EXPOSE 80
