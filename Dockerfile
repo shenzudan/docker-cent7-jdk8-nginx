@@ -30,7 +30,7 @@ RUN curl --fail --location --retry 3 \
         -o /tmp/nginx.tar.gz \
     && tar -zxf /tmp/nginx.tar.gz -C /usr/local/ \
     && \rm -f /tmp/nginx.tar.gz \
-    && yum -y install pcre-devel openssl-devel gcc-c++ \
+    && yum -y install pcre-devel openssl-devel gcc gcc-c++ automake autoconf libtool make \
     && cd /usr/local/nginx-1.15.6/ \
     && ./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module \
     && make && make install
