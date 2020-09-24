@@ -31,8 +31,8 @@ RUN curl --fail --location --retry 3 \
     && tar -zxf /tmp/nginx.tar.gz -C /usr/local/ \
     && \rm -f /tmp/nginx.tar.gz \
     && yum -y install pcre-devel openssl-devel \
-    && cd /usr/local/nginx-1.15.6/
-    && ./configure  --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module \
+    && cd /usr/local/nginx-1.15.6/ \
+    && ./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module \
     && make && make install
 
 
