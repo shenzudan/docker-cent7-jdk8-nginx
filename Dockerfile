@@ -3,12 +3,10 @@ LABEL maintainer="Stan<admin@stanwind.com>"
 
 ENV LANG="en_US.UTF-8" \
     LANGUAGE="en_US:en" \
-    LC_ALL="en_US.UTF-8"
-
-ENV JAVA_VERSION="1.8"
-
-ENV JAVA_HOME="/usr/local/jdk${JAVA_VERSION}"
-ENV PATH="${PATH}:${JAVA_HOME}/bin"
+    LC_ALL="en_US.UTF-8" \
+    JAVA_VERSION="1.8" \
+    JAVA_HOME="/usr/local/jdk${JAVA_VERSION}" \
+    PATH="${PATH}:${JAVA_HOME}/bin"
 
 # Do not use alias cp
 RUN \cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
