@@ -35,8 +35,8 @@ RUN curl --fail --location --retry 3 \
 
 
 # Overwrite nginx conf
-COPY nginx.conf /usr/local/nginx/conf/
-COPY vhost /usr/local/nginx/conf/
+COPY conf/nginx/nginx.conf /usr/local/nginx/conf/
+COPY conf/nginx/vhost /usr/local/nginx/conf/
 
 # Run nginx
 #RUN /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
