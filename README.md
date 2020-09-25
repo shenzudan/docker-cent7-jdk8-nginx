@@ -1,7 +1,8 @@
-#自用基础镜像
+# 自用基础镜像
 env: centos7 + jdk1.8_181 + nginx1.15.6 (static_gzip)
 
-####build local:
+#### build local:
+
 ```shell
 #pull project
 git clone https://github.com/shenzudan/docker-cent7-jdk8-nginx.git
@@ -14,7 +15,7 @@ bash install_docker.sh
 docker build -t stanwind/cent7-jdk8-nginx:1.0 .
 ```
 
-####usage:
+#### usage:
 
 local artifacts
 ```dockerfile
